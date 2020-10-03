@@ -34,11 +34,31 @@ class MovieListViewControlller: UICollectionViewController {
         collectionView.backgroundColor = .white
         setupCollectionView()
         refresh()
+        donateIntent()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func donateIntent() {
+       INPreferences.requestSiriAuthorization { [weak self] (authorization) in
+           guard let strongSelf = self else { return }
+//           guard authorization == INSiriAuthorizationStatus.authorized else {
+//                return
+//           }
+        
+           let intent = MoviesIntent()
+           intent.endpoint = strongSelf.endpoint.description
+           intent.suggestedInvocationPhrase = "\(strongSelf.endpoint.description) movies"
+           let interaction = INInteraction(intent: intent, response: nil)
+           interaction.donate(completion: { (error) in
+               if let error = error {
+                    print(error.localizedDescription)
+               }
+           })
+       }
     }
     
     private func setupCollectionView() {

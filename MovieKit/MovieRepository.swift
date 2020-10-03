@@ -10,7 +10,7 @@ import Foundation
 public class MovieRepository {
     public static let shared = MovieRepository()
     private init() {}
-    private let apiKey = "YOUR_API_KEY"
+    private let apiKey = "faa82f25602c310bc50a08369866fe28"
     private let baseAPIURL = "https://api.themoviedb.org/3"
     private let urlSession = URLSession.shared
     

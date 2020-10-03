@@ -24,6 +24,15 @@
 		04841304252804EF007AA268 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04841302252804EF007AA268 /* MovieRepository.swift */; };
 		0484131525280591007AA268 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484131425280591007AA268 /* MovieCollectionViewCell.swift */; };
 		0484131625280591007AA268 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484131425280591007AA268 /* MovieCollectionViewCell.swift */; };
+		0484133C25281099007AA268 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0484133B25281099007AA268 /* Intents.intentdefinition */; };
+		04841358252811E7007AA268 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04841357252811E7007AA268 /* IntentHandler.swift */; };
+		04841360252811E7007AA268 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0484135F252811E7007AA268 /* IntentsUI.framework */; };
+		04841363252811E7007AA268 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04841362252811E7007AA268 /* IntentViewController.swift */; };
+		04841366252811E7007AA268 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04841364252811E7007AA268 /* MainInterface.storyboard */; };
+		0484136A252811E7007AA268 /* MoviesIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0484135E252811E7007AA268 /* MoviesIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0484136D252811E7007AA268 /* MoviesIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04841355252811E7007AA268 /* MoviesIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		048413872528123D007AA268 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0484133B25281099007AA268 /* Intents.intentdefinition */; };
+		0484138E2528123E007AA268 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0484133B25281099007AA268 /* Intents.intentdefinition */; };
 		393AB3016639A55735164CF9 /* Pods_Movie_MovieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DC115B4D73EDCF579DBBEA /* Pods_Movie_MovieUITests.framework */; };
 		5CCA626399D24C12F3D52505 /* Pods_Movie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66009F87343A964144B5BAE /* Pods_Movie.framework */; };
 		9D98D7EC461E581567876BDE /* Pods_Movie_MovieKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F2F267CE26048FA8A26D0F /* Pods_Movie_MovieKit.framework */; };
@@ -66,6 +75,20 @@
 			remoteGlobalIDString = 048412D42528041E007AA268;
 			remoteInfo = MovieKit;
 		};
+		04841368252811E7007AA268 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0484128B25280202007AA268 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0484135D252811E7007AA268;
+			remoteInfo = MoviesIntentUI;
+		};
+		0484136B252811E7007AA268 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0484128B25280202007AA268 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04841354252811E7007AA268;
+			remoteInfo = MoviesIntent;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +101,18 @@
 				048412EB2528041E007AA268 /* MovieKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04841374252811E7007AA268 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0484136A252811E7007AA268 /* MoviesIntentUI.appex in Embed App Extensions */,
+				0484136D252811E7007AA268 /* MoviesIntent.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -104,6 +139,16 @@
 		048412F72528048A007AA268 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		04841302252804EF007AA268 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
 		0484131425280591007AA268 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		0484133B25281099007AA268 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		04841355252811E7007AA268 /* MoviesIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoviesIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		04841357252811E7007AA268 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		04841359252811E7007AA268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0484135E252811E7007AA268 /* MoviesIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoviesIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0484135F252811E7007AA268 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		04841362252811E7007AA268 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		04841365252811E7007AA268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		04841367252811E7007AA268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04841395252813F1007AA268 /* Movie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Movie.entitlements; sourceTree = "<group>"; };
 		12241205A2CF9D17BEAEB140 /* Pods-Movie-MovieUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie-MovieUITests.debug.xcconfig"; path = "Target Support Files/Pods-Movie-MovieUITests/Pods-Movie-MovieUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3FAE09C3D8A8E2988D6D213F /* Pods-Movie-MovieKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie-MovieKit.release.xcconfig"; path = "Target Support Files/Pods-Movie-MovieKit/Pods-Movie-MovieKit.release.xcconfig"; sourceTree = "<group>"; };
 		4491BA79605190377F4A78C4 /* Pods-Movie-MovieKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie-MovieKit.debug.xcconfig"; path = "Target Support Files/Pods-Movie-MovieKit/Pods-Movie-MovieKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +205,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		04841352252811E7007AA268 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0484135B252811E7007AA268 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04841360252811E7007AA268 /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -170,6 +230,7 @@
 				C9DC115B4D73EDCF579DBBEA /* Pods_Movie_MovieUITests.framework */,
 				6E31AD5560A4A0DBDA9FA74B /* Pods_MovieTests.framework */,
 				67F2F267CE26048FA8A26D0F /* Pods_Movie_MovieKit.framework */,
+				0484135F252811E7007AA268 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -182,6 +243,8 @@
 				048412B725280203007AA268 /* MovieUITests */,
 				048412D62528041E007AA268 /* MovieKit */,
 				048412E32528041E007AA268 /* MovieKitTests */,
+				04841356252811E7007AA268 /* MoviesIntent */,
+				04841361252811E7007AA268 /* MoviesIntentUI */,
 				0484129425280202007AA268 /* Products */,
 				A21D2502D369ADC63FD27F41 /* Pods */,
 				0282ADE3219E154BF52ADE8F /* Frameworks */,
@@ -196,6 +259,8 @@
 				048412B425280203007AA268 /* MovieUITests.xctest */,
 				048412D52528041E007AA268 /* MovieKit.framework */,
 				048412DD2528041E007AA268 /* MovieKitTests.xctest */,
+				04841355252811E7007AA268 /* MoviesIntent.appex */,
+				0484135E252811E7007AA268 /* MoviesIntentUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,8 +268,10 @@
 		0484129525280202007AA268 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				04841395252813F1007AA268 /* Movie.entitlements */,
 				0484129625280202007AA268 /* AppDelegate.swift */,
 				0484129A25280202007AA268 /* MovieListViewControlller.swift */,
+				0484133B25281099007AA268 /* Intents.intentdefinition */,
 				0484129F25280203007AA268 /* Assets.xcassets */,
 				048412A125280203007AA268 /* LaunchScreen.storyboard */,
 				048412A425280203007AA268 /* Info.plist */,
@@ -251,6 +318,25 @@
 			path = MovieKitTests;
 			sourceTree = "<group>";
 		};
+		04841356252811E7007AA268 /* MoviesIntent */ = {
+			isa = PBXGroup;
+			children = (
+				04841357252811E7007AA268 /* IntentHandler.swift */,
+				04841359252811E7007AA268 /* Info.plist */,
+			);
+			path = MoviesIntent;
+			sourceTree = "<group>";
+		};
+		04841361252811E7007AA268 /* MoviesIntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				04841362252811E7007AA268 /* IntentViewController.swift */,
+				04841364252811E7007AA268 /* MainInterface.storyboard */,
+				04841367252811E7007AA268 /* Info.plist */,
+			);
+			path = MoviesIntentUI;
+			sourceTree = "<group>";
+		};
 		A21D2502D369ADC63FD27F41 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,11 +376,14 @@
 				0484129125280202007AA268 /* Resources */,
 				7C495072EEDEA9903C9CC4E7 /* [CP] Embed Pods Frameworks */,
 				048412EC2528041E007AA268 /* Embed Frameworks */,
+				04841374252811E7007AA268 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				048412E92528041E007AA268 /* PBXTargetDependency */,
+				04841369252811E7007AA268 /* PBXTargetDependency */,
+				0484136C252811E7007AA268 /* PBXTargetDependency */,
 			);
 			name = Movie;
 			productName = Movie;
@@ -377,6 +466,40 @@
 			productReference = 048412DD2528041E007AA268 /* MovieKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		04841354252811E7007AA268 /* MoviesIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04841371252811E7007AA268 /* Build configuration list for PBXNativeTarget "MoviesIntent" */;
+			buildPhases = (
+				04841351252811E7007AA268 /* Sources */,
+				04841352252811E7007AA268 /* Frameworks */,
+				04841353252811E7007AA268 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoviesIntent;
+			productName = MoviesIntent;
+			productReference = 04841355252811E7007AA268 /* MoviesIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		0484135D252811E7007AA268 /* MoviesIntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0484136E252811E7007AA268 /* Build configuration list for PBXNativeTarget "MoviesIntentUI" */;
+			buildPhases = (
+				0484135A252811E7007AA268 /* Sources */,
+				0484135B252811E7007AA268 /* Frameworks */,
+				0484135C252811E7007AA268 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoviesIntentUI;
+			productName = MoviesIntentUI;
+			productReference = 0484135E252811E7007AA268 /* MoviesIntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -405,6 +528,12 @@
 						CreatedOnToolsVersion = 12.0;
 						TestTargetID = 0484129225280202007AA268;
 					};
+					04841354252811E7007AA268 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					0484135D252811E7007AA268 = {
+						CreatedOnToolsVersion = 12.0;
+					};
 				};
 			};
 			buildConfigurationList = 0484128E25280202007AA268 /* Build configuration list for PBXProject "Movie" */;
@@ -425,6 +554,8 @@
 				048412B325280203007AA268 /* MovieUITests */,
 				048412D42528041E007AA268 /* MovieKit */,
 				048412DC2528041E007AA268 /* MovieKitTests */,
+				04841354252811E7007AA268 /* MoviesIntent */,
+				0484135D252811E7007AA268 /* MoviesIntentUI */,
 			);
 		};
 /* End PBXProject section */
@@ -464,6 +595,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04841353252811E7007AA268 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0484135C252811E7007AA268 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04841366252811E7007AA268 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +728,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0484133C25281099007AA268 /* Intents.intentdefinition in Sources */,
 				0484129B25280202007AA268 /* MovieListViewControlller.swift in Sources */,
 				0484129725280202007AA268 /* AppDelegate.swift in Sources */,
 				048412F82528048A007AA268 /* Movie.swift in Sources */,
@@ -624,6 +771,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		04841351252811E7007AA268 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				048413872528123D007AA268 /* Intents.intentdefinition in Sources */,
+				04841358252811E7007AA268 /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0484135A252811E7007AA268 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0484138E2528123E007AA268 /* Intents.intentdefinition in Sources */,
+				04841363252811E7007AA268 /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -652,6 +817,16 @@
 			target = 048412D42528041E007AA268 /* MovieKit */;
 			targetProxy = 048412E82528041E007AA268 /* PBXContainerItemProxy */;
 		};
+		04841369252811E7007AA268 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0484135D252811E7007AA268 /* MoviesIntentUI */;
+			targetProxy = 04841368252811E7007AA268 /* PBXContainerItemProxy */;
+		};
+		0484136C252811E7007AA268 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04841354252811E7007AA268 /* MoviesIntent */;
+			targetProxy = 0484136B252811E7007AA268 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -661,6 +836,14 @@
 				048412A225280203007AA268 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		04841364252811E7007AA268 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04841365252811E7007AA268 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -789,7 +972,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Movie/Movie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H5VQ968J7G;
 				INFOPLIST_FILE = Movie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -809,7 +994,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Movie/Movie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H5VQ968J7G;
 				INFOPLIST_FILE = Movie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1001,6 +1188,78 @@
 			};
 			name = Release;
 		};
+		0484136F252811E7007AA268 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MoviesIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = weilunsu.Movie.MoviesIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04841370252811E7007AA268 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MoviesIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = weilunsu.Movie.MoviesIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		04841372252811E7007AA268 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MoviesIntent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = weilunsu.Movie.MoviesIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04841373252811E7007AA268 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MoviesIntent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = weilunsu.Movie.MoviesIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1054,6 +1313,24 @@
 			buildConfigurations = (
 				048412EF2528041E007AA268 /* Debug */,
 				048412F02528041E007AA268 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0484136E252811E7007AA268 /* Build configuration list for PBXNativeTarget "MoviesIntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0484136F252811E7007AA268 /* Debug */,
+				04841370252811E7007AA268 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04841371252811E7007AA268 /* Build configuration list for PBXNativeTarget "MoviesIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04841372252811E7007AA268 /* Debug */,
+				04841373252811E7007AA268 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
