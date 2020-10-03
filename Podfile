@@ -6,7 +6,10 @@ target 'Movie' do
   use_frameworks!
 
   # Pods for Movie
-pod 'Kingfisher', '~> 4.0'
+  target 'MovieKit' do
+    use_frameworks!
+    pod 'Kingfisher', '~> 4.0'
+  end
 
   target 'MovieTests' do
     inherit! :search_paths
