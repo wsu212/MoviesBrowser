@@ -22,7 +22,7 @@
 			<key>INIntentConfigurable</key>
 			<true/>
 			<key>INIntentDescription</key>
-			<string>View list of movies</string>
+			<string>Browse list of movies</string>
 			<key>INIntentDescriptionID</key>
 			<string>WKKfBS</string>
 			<key>INIntentLastParameterTag</key>
@@ -34,7 +34,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>View ${endpoint} movies</string>
+					<string>Browse ${endpoint}</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>UIiFbH</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>
@@ -42,17 +42,15 @@
 				</dict>
 			</dict>
 			<key>INIntentName</key>
-			<string>Movies</string>
+			<string>BrowseMovies</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
 				<key>endpoint</key>
 				<dict>
-					<key>INIntentParameterCombinationIsLinked</key>
-					<true/>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>View ${endpoint} movies</string>
+					<string>Browse ${endpoint}</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>1WtDeS</string>
 				</dict>
@@ -156,7 +154,7 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>View Movies</string>
+			<string>Browse Movies</string>
 			<key>INIntentTitleID</key>
 			<string>jtJbAx</string>
 			<key>INIntentType</key>

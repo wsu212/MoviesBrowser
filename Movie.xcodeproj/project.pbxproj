@@ -33,6 +33,7 @@
 		0484136D252811E7007AA268 /* MoviesIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04841355252811E7007AA268 /* MoviesIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		048413872528123D007AA268 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0484133B25281099007AA268 /* Intents.intentdefinition */; };
 		0484138E2528123E007AA268 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0484133B25281099007AA268 /* Intents.intentdefinition */; };
+		04ADD2B5252A754D00ED5EBA /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0484133B25281099007AA268 /* Intents.intentdefinition */; };
 		393AB3016639A55735164CF9 /* Pods_Movie_MovieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DC115B4D73EDCF579DBBEA /* Pods_Movie_MovieUITests.framework */; };
 		5CCA626399D24C12F3D52505 /* Pods_Movie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66009F87343A964144B5BAE /* Pods_Movie.framework */; };
 		9D98D7EC461E581567876BDE /* Pods_Movie_MovieKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F2F267CE26048FA8A26D0F /* Pods_Movie_MovieKit.framework */; };
@@ -759,6 +760,7 @@
 			files = (
 				0484131625280591007AA268 /* MovieCollectionViewCell.swift in Sources */,
 				04841304252804EF007AA268 /* MovieRepository.swift in Sources */,
+				04ADD2B5252A754D00ED5EBA /* Intents.intentdefinition in Sources */,
 				048412F92528048A007AA268 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

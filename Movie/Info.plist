@@ -22,7 +22,7 @@
 	<true/>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>MoviesIntent</string>
+		<string>BrowseMoviesIntent</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

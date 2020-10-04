@@ -49,7 +49,7 @@ class MovieListViewControlller: UICollectionViewController {
 //                return
 //           }
         
-           let intent = MoviesIntent()
+           let intent = BrowseMoviesIntent()
            intent.endpoint = strongSelf.endpoint.description
            intent.suggestedInvocationPhrase = "\(strongSelf.endpoint.description) movies"
            let interaction = INInteraction(intent: intent, response: nil)

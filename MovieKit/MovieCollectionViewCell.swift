@@ -10,7 +10,6 @@ import Kingfisher
 import Foundation
 
 public class MovieCollectionViewCell: UICollectionViewCell {
-    
     private var ratingLabel: UILabel = UILabel()
     private var imageView: UIImageView = UIImageView()
     private var titleLabel: UILabel = UILabel()
