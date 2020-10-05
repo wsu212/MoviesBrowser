@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 import Foundation
 
 public class MovieCollectionViewCell: UICollectionViewCell {
@@ -32,14 +31,6 @@ public class MovieCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
-    public var movie: Movie? {
-        didSet {
-            titleLabel.text = movie?.title
-            ratingLabel.text = movie?.voteAveragePercentText
-            imageView.kf.setImage(with: movie?.posterURL)
-        }
-    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,5 +65,23 @@ public class MovieCollectionViewCell: UICollectionViewCell {
         titleLabel.isHidden = false
         ratingLabel.isHidden = false
     }
+    
+    public func updateUI(movie: Movie) {
+        titleLabel.text = movie.title
+        ratingLabel.text = movie.voteAveragePercentText
+        imageView.setAsyncImage(url: movie.posterURL)
+    }
 
+}
+
+extension UIImageView {
+    public func setAsyncImage(url: URL) {
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    self.image = UIImage(data: data)
+                }
+            }
+        }
+    }
 }

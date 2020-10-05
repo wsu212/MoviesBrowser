@@ -91,7 +91,7 @@ class IntentViewController: UIViewController, INUIHostedViewControlling, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MovieCollectionViewCell
         let movie = movies[indexPath.row]
-        cell.movie = movie
+        cell.updateUI(movie: movie)
         return cell
     }
 }

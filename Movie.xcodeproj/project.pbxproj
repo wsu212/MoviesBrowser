@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04557F0C252AAF4500899490 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048412F72528048A007AA268 /* Movie.swift */; };
+		04557F18252AAF4600899490 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048412F72528048A007AA268 /* Movie.swift */; };
+		04557F1F252AAF4B00899490 /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ADD2E3252A9DD400ED5EBA /* MovieList.swift */; };
+		04557F20252AAF4B00899490 /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ADD2E3252A9DD400ED5EBA /* MovieList.swift */; };
+		04557F27252AAF4E00899490 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04841302252804EF007AA268 /* MovieService.swift */; };
+		04557F2E252AAF4E00899490 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04841302252804EF007AA268 /* MovieService.swift */; };
+		04557F35252AAF5100899490 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484131425280591007AA268 /* MovieCollectionViewCell.swift */; };
+		04557F3C252AAF5200899490 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484131425280591007AA268 /* MovieCollectionViewCell.swift */; };
 		0484129725280202007AA268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484129625280202007AA268 /* AppDelegate.swift */; };
 		0484129B25280202007AA268 /* MovieListViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484129A25280202007AA268 /* MovieListViewControlller.swift */; };
 		048412A025280203007AA268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0484129F25280203007AA268 /* Assets.xcassets */; };
@@ -785,6 +793,10 @@
 			files = (
 				048413872528123D007AA268 /* Intents.intentdefinition in Sources */,
 				04841358252811E7007AA268 /* IntentHandler.swift in Sources */,
+				04557F1F252AAF4B00899490 /* MovieList.swift in Sources */,
+				04557F35252AAF5100899490 /* MovieCollectionViewCell.swift in Sources */,
+				04557F0C252AAF4500899490 /* Movie.swift in Sources */,
+				04557F27252AAF4E00899490 /* MovieService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +806,10 @@
 			files = (
 				0484138E2528123E007AA268 /* Intents.intentdefinition in Sources */,
 				04841363252811E7007AA268 /* IntentViewController.swift in Sources */,
+				04557F20252AAF4B00899490 /* MovieList.swift in Sources */,
+				04557F3C252AAF5200899490 /* MovieCollectionViewCell.swift in Sources */,
+				04557F18252AAF4600899490 /* Movie.swift in Sources */,
+				04557F2E252AAF4E00899490 /* MovieService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

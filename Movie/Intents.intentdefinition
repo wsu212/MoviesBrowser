@@ -22,19 +22,21 @@
 			<key>INIntentConfigurable</key>
 			<true/>
 			<key>INIntentDescription</key>
-			<string>Browse list of movies</string>
+			<string>Browse list of movies from IMDb</string>
 			<key>INIntentDescriptionID</key>
 			<string>WKKfBS</string>
+			<key>INIntentKeyParameter</key>
+			<string>list</string>
 			<key>INIntentLastParameterTag</key>
 			<integer>1</integer>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
-				<key>endpoint</key>
+				<key>list</key>
 				<dict>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Search for ${endpoint} for Wei-Lun</string>
+					<string>Search for ${list} list of movies for Wei-Lun</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>UIiFbH</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>
@@ -45,12 +47,12 @@
 			<string>BrowseMovies</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
-				<key>endpoint</key>
+				<key>list</key>
 				<dict>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Search for ${endpoint} for Wei-Lun</string>
+					<string>Search for ${list} list of movies for Wei-Lun</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>1WtDeS</string>
 				</dict>
@@ -61,7 +63,7 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Endpoint</string>
+					<string>List</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>PIIRY6</string>
 					<key>INIntentParameterDisplayPriority</key>
@@ -74,7 +76,7 @@
 						<string>CVIuNl</string>
 					</dict>
 					<key>INIntentParameterName</key>
-					<string>endpoint</string>
+					<string>list</string>
 					<key>INIntentParameterPromptDialogs</key>
 					<array>
 						<dict>
@@ -87,7 +89,7 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>View list of movies</string>
+							<string>Search for Now Playing for Wei-Lun</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
 							<string>9qeI2h</string>
 							<key>INIntentParameterPromptDialogType</key>
@@ -154,7 +156,7 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>Browse Movies</string>
+			<string>Browse IMDb Movies</string>
 			<key>INIntentTitleID</key>
 			<string>jtJbAx</string>
 			<key>INIntentType</key>

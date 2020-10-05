@@ -8,6 +8,7 @@
 import Intents
 
 class IntentHandler: INExtension, BrowseMoviesIntentHandling {
+    
     override func handler(for intent: INIntent) -> Any? {
         // This is the default implementation.  If you want different objects to handle different intents,
         // you can override this and return the handler you want for that particular intent.
@@ -16,19 +17,19 @@ class IntentHandler: INExtension, BrowseMoviesIntentHandling {
     
     func handle(intent: BrowseMoviesIntent,
                 completion: @escaping (BrowseMoviesIntentResponse) -> Void) {
-        guard let endpoint = intent.endpoint else {
+        guard let list = intent.list else {
             completion(BrowseMoviesIntentResponse(code: .failure, userActivity: nil))
             return
         }
-        completion(BrowseMoviesIntentResponse.success(type: endpoint))
+        completion(BrowseMoviesIntentResponse.success(type: list))
     }
     
-    func resolveEndpoint(for intent: BrowseMoviesIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
-        guard let endpoint = intent.endpoint else {
-            completion(INStringResolutionResult.disambiguation(with: ["hello", "world"]))
+    func resolveList(for intent: BrowseMoviesIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
+        guard let list = intent.list else {
+            completion(INStringResolutionResult.disambiguation(with: ["Now Playing", "Upcoming", "Popular", "Top Rated"]))
             return
         }
-        let spotlightSearchTitle = endpoint
+        let spotlightSearchTitle = list
         completion(INStringResolutionResult.success(with: spotlightSearchTitle))
     }
 }

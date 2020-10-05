@@ -77,7 +77,7 @@ class MovieListViewControlller: UICollectionViewController {
 //                return
 //           }
            let intent = BrowseMoviesIntent()
-           intent.endpoint = self.list.description
+           intent.list = self.list.description
            intent.suggestedInvocationPhrase = "Search for \(self.list.description) movies for Wei-Lun"
            let interaction = INInteraction(intent: intent, response: nil)
            interaction.donate(completion: { (error) in
@@ -112,7 +112,7 @@ class MovieListViewControlller: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MovieCollectionViewCell
         let movie = movies[indexPath.row]
-        cell.movie = movie
+        cell.updateUI(movie: movie)
         return cell
     }
     
