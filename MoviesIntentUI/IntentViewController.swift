@@ -8,22 +8,41 @@
 import IntentsUI
 import MovieKit
 
-class IntentViewController: UIViewController, INUIHostedViewControlling, UITableViewDataSource, UITableViewDelegate {
+class IntentViewController: UIViewController, INUIHostedViewControlling, UICollectionViewDataSource, UICollectionViewDelegate {
+    
     let service = MovieService.shared
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     var movies = [Movie]() {
         didSet {
-            tableView.reloadData()
+            collectionView.reloadData()
         }
     }
     
+    private static let compositionalLayout: UICollectionViewCompositionalLayout = {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(0.33)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 10
+        section.contentInsets = .init(top: 10, leading: 10, bottom: 0, trailing: 10)
+        return UICollectionViewCompositionalLayout(section: section)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.estimatedRowHeight = 85.0
-        tableView.rowHeight = UITableView.automaticDimension
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.collectionViewLayout = Self.compositionalLayout
+        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
     }
         
     // MARK: - INUIHostedViewControlling
@@ -65,15 +84,14 @@ class IntentViewController: UIViewController, INUIHostedViewControlling, UITable
         return size
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MovieCollectionViewCell
         let movie = movies[indexPath.row]
-        cell?.textLabel?.text = movie.title
-        cell?.detailTextLabel?.text = movie.voteAveragePercentText
-        return cell ?? UITableViewCell()
+        cell.movie = movie
+        return cell
     }
 }
