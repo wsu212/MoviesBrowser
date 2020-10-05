@@ -48,7 +48,7 @@ class IntentViewController: UIViewController, INUIHostedViewControlling, UITable
 //            return
 //        }
         
-        service.fetchMovies(from: .topRated, successHandler: { response in
+        service.getMovies(from: .topRated, successHandler: { response in
 //        repository.fetchMovies(from: endpoint, successHandler: { (response) in
             DispatchQueue.main.async {
                 self.movies = response.results

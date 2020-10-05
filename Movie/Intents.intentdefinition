@@ -34,7 +34,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Browse ${endpoint}</string>
+					<string>Search for ${endpoint} for Wei-Lun</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>UIiFbH</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>
@@ -50,7 +50,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Browse ${endpoint}</string>
+					<string>Search for ${endpoint} for Wei-Lun</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>1WtDeS</string>
 				</dict>

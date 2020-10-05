@@ -10,30 +10,58 @@ import MovieKit
 import Intents
 
 class MovieListViewControlller: UICollectionViewController {
-    let activityIndicator = UIActivityIndicatorView(style: .large)
+    
     var list: MovieList
     var service: MovieService
+    
     var movies = [Movie]() {
         didSet {
             collectionView.reloadData()
         }
     }
     
+    private static let compositionalLayout: UICollectionViewCompositionalLayout = {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(0.33)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 10
+        section.contentInsets = .init(top: 10, leading: 10, bottom: 0, trailing: 10)
+        return UICollectionViewCompositionalLayout(section: section)
+    }()
+    
+    // MARK: - Initializer
+    
     init(list: MovieList, service: MovieService = MovieService.shared) {
         self.list = list
         self.service = service
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        super.init(collectionViewLayout: Self.compositionalLayout)
+        collectionView.collectionViewLayout = Self.compositionalLayout
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = list.description
         collectionView.backgroundColor = .white
-        setupCollectionView()
-        refresh()
+        let refreshControl = UIRefreshControl(frame: .zero)
+        refreshControl.addTarget(self, action: #selector(getMovies), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        getMovies()
         donateIntent()
     }
     
@@ -44,14 +72,13 @@ class MovieListViewControlller: UICollectionViewController {
     
     private func donateIntent() {
        INPreferences.requestSiriAuthorization { [weak self] (authorization) in
-           guard let strongSelf = self else { return }
+           guard let self = self else { return }
 //           guard authorization == INSiriAuthorizationStatus.authorized else {
 //                return
 //           }
-        
            let intent = BrowseMoviesIntent()
-           intent.endpoint = strongSelf.list.description
-           intent.suggestedInvocationPhrase = "\(strongSelf.list.description) movies"
+           intent.endpoint = self.list.description
+           intent.suggestedInvocationPhrase = "Search for \(self.list.description) movies for Wei-Lun"
            let interaction = INInteraction(intent: intent, response: nil)
            interaction.donate(completion: { (error) in
                if let error = error {
@@ -61,54 +88,22 @@ class MovieListViewControlller: UICollectionViewController {
        }
     }
     
-    private func setupCollectionView() {
-        title = list.description
-        
-        activityIndicator.center = view.center
-        view.addSubview(activityIndicator)
-        
-        let refreshControl = UIRefreshControl(frame: .zero)
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        collectionView.refreshControl = refreshControl
-        
-        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-      
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        let screenWidth = UIScreen.main.bounds.width
-        
-        layout.minimumInteritemSpacing = 1
-        layout.minimumLineSpacing = 2
-        layout.sectionInset.top = 1
-        layout.sectionInset.bottom = 1
-        
-        let itemWidth: CGFloat = (screenWidth / 3.0).rounded(.down)
-        let itemSize = CGSize(width: itemWidth - 1.0 , height: (itemWidth * 3) / 2)
-        layout.itemSize = itemSize
-    }
-    
-    @objc private func refresh() {
-        fetchMovies()
-    }
-    
-    private func fetchMovies() {
-        if movies.isEmpty {
-            activityIndicator.startAnimating()
-        }
-        
-        service.fetchMovies(from: list, params: ["page": String(1)], successHandler: {[weak self] (response) in
+    @objc
+    private func getMovies() {
+        service.getMovies(from: list, params: ["page": String(1)], successHandler: {[weak self] (response) in
             DispatchQueue.main.async {
-                self?.activityIndicator.stopAnimating()
                 self?.collectionView.refreshControl?.endRefreshing()
                 self?.movies = response.results
             }
         }) {[weak self] (error) in
             DispatchQueue.main.async {
-                self?.activityIndicator.stopAnimating()
                 self?.collectionView.refreshControl?.endRefreshing()
                 self?.collectionView.reloadData()
             }
         }
     }
+    
+    // MARK: - UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
          return movies.count

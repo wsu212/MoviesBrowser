@@ -31,7 +31,7 @@ public class MovieService {
         case serializationError
     }
     
-    public func fetchMovies(from endpoint: MovieList, params: [String: String]? = nil, successHandler: @escaping (_ response: MoviesResponse) -> Void, errorHandler: @escaping(_ error: Error) -> Void) {
+    public func getMovies(from endpoint: MovieList, params: [String: String]? = nil, successHandler: @escaping (_ response: MoviesResponse) -> Void, errorHandler: @escaping(_ error: Error) -> Void) {
         
         guard var urlComponents = URLComponents(string: "\(baseAPIURL)/movie/\(endpoint.rawValue)") else {
             errorHandler(MovieError.invalidEndpoint)

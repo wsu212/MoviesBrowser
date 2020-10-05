@@ -10,52 +10,59 @@ import Kingfisher
 import Foundation
 
 public class MovieCollectionViewCell: UICollectionViewCell {
-    private var ratingLabel: UILabel = UILabel()
-    private var imageView: UIImageView = UIImageView()
-    private var titleLabel: UILabel = UILabel()
     
-    public var movie: Movie! {
+    private var titleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = .boldSystemFont(ofSize: 16.0)
+        label.textColor = .black
+        return label
+    }()
+    
+    private var ratingLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = .italicSystemFont(ofSize: 11.0)
+        label.textColor = .darkGray
+        return label
+    }()
+    
+    private var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    public var movie: Movie? {
         didSet {
-            self.titleLabel.text = movie?.title
-            self.imageView.kf.setImage(with: movie?.posterURL, placeholder: nil, options: nil, progressBlock: nil) { (_, error, _, _) in
-                self.titleLabel.isHidden = error == nil
-            }
-            
-            let voteCount = movie?.voteCount ?? 0
-            if voteCount > 0 {
-                ratingLabel.text = movie.voteAveragePercentText
-            } else {
-                ratingLabel.isHidden = true
-            }
-            
+            titleLabel.text = movie?.title
+            ratingLabel.text = movie?.voteAveragePercentText
+            imageView.kf.setImage(with: movie?.posterURL)
         }
     }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        [ratingLabel,
+        [titleLabel,
          imageView,
-         titleLabel].forEach {
+         ratingLabel
+        ].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview($0)
         }
-        NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: 240),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+        NSLayoutConstraint.activate([imageView.heightAnchor.constraint(equalToConstant: 194.0),
+                                     imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                                     imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+                                     imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             
-            titleLabel.heightAnchor.constraint(equalToConstant: 44),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+                                     titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10.0),
+                                     titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10.0),
+                                     titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10.0),
             
-            ratingLabel.heightAnchor.constraint(equalToConstant: 44),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-        ])
+                                     ratingLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 6.0),
+                                     ratingLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10.0),
+                                     ratingLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10.0),
+                                     ratingLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10.0)])
     }
     
     required init?(coder: NSCoder) {

@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return MovieList.allCases.map {
             let vc = MovieListViewControlller(list: $0)
             vc.title = $0.description
-            return vc
+            let nvc = UINavigationController(rootViewController: vc)
+            return nvc
         }
     }
     
