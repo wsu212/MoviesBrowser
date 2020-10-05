@@ -11,17 +11,17 @@ import Intents
 
 class MovieListViewControlller: UICollectionViewController {
     let activityIndicator = UIActivityIndicatorView(style: .large)
-    var endpoint: MovieRepository.Endpoint
-    var movieRepository: MovieRepository
+    var list: MovieList
+    var service: MovieService
     var movies = [Movie]() {
         didSet {
             collectionView.reloadData()
         }
     }
     
-    init(endpoint: MovieRepository.Endpoint, movieRepository: MovieRepository = MovieRepository.shared) {
-        self.endpoint = endpoint
-        self.movieRepository = movieRepository
+    init(list: MovieList, service: MovieService = MovieService.shared) {
+        self.list = list
+        self.service = service
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
@@ -50,8 +50,8 @@ class MovieListViewControlller: UICollectionViewController {
 //           }
         
            let intent = BrowseMoviesIntent()
-           intent.endpoint = strongSelf.endpoint.description
-           intent.suggestedInvocationPhrase = "\(strongSelf.endpoint.description) movies"
+           intent.endpoint = strongSelf.list.description
+           intent.suggestedInvocationPhrase = "\(strongSelf.list.description) movies"
            let interaction = INInteraction(intent: intent, response: nil)
            interaction.donate(completion: { (error) in
                if let error = error {
@@ -62,7 +62,7 @@ class MovieListViewControlller: UICollectionViewController {
     }
     
     private func setupCollectionView() {
-        title = endpoint.description
+        title = list.description
         
         activityIndicator.center = view.center
         view.addSubview(activityIndicator)
@@ -86,7 +86,6 @@ class MovieListViewControlller: UICollectionViewController {
         layout.itemSize = itemSize
     }
     
-
     @objc private func refresh() {
         fetchMovies()
     }
@@ -96,7 +95,7 @@ class MovieListViewControlller: UICollectionViewController {
             activityIndicator.startAnimating()
         }
         
-        movieRepository.fetchMovies(from: endpoint, params: ["page": String(1)], successHandler: {[weak self] (response) in
+        service.fetchMovies(from: list, params: ["page": String(1)], successHandler: {[weak self] (response) in
             DispatchQueue.main.async {
                 self?.activityIndicator.stopAnimating()
                 self?.collectionView.refreshControl?.endRefreshing()

@@ -1,5 +1,5 @@
 //
-//  MovieRepository.swift
+//  MovieService.swift
 //  Movie
 //
 //  Created by Wei-Lun Su on 10/2/20.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-public class MovieRepository {
-    public static let shared = MovieRepository()
+public class MovieService {
+    public static let shared = MovieService()
     private init() {}
     private let apiKey = "faa82f25602c310bc50a08369866fe28"
     private let baseAPIURL = "https://api.themoviedb.org/3"
@@ -23,30 +23,6 @@ public class MovieRepository {
         return jsonDecoder
     }()
     
-    public enum Endpoint: String, CustomStringConvertible, CaseIterable {
-        case nowPlaying = "now_playing"
-        case upcoming
-        case popular
-        case topRated = "top_rated"
-        
-        public var description: String {
-            switch self {
-            case .nowPlaying: return "Now Playing"
-            case .upcoming: return "Upcoming"
-            case .popular: return "Popular"
-            case .topRated: return "Top Rated"
-            }
-        }
-        
-        public init?(description: String) {
-            guard let first = Endpoint.allCases.first(where: { $0.description == description }) else {
-                return nil
-            }
-            self = first
-        }
-        
-    }
-    
     public enum MovieError: Error {
         case apiError
         case invalidEndpoint
@@ -55,7 +31,7 @@ public class MovieRepository {
         case serializationError
     }
     
-    public func fetchMovies(from endpoint: Endpoint, params: [String: String]? = nil, successHandler: @escaping (_ response: MoviesResponse) -> Void, errorHandler: @escaping(_ error: Error) -> Void) {
+    public func fetchMovies(from endpoint: MovieList, params: [String: String]? = nil, successHandler: @escaping (_ response: MoviesResponse) -> Void, errorHandler: @escaping(_ error: Error) -> Void) {
         
         guard var urlComponents = URLComponents(string: "\(baseAPIURL)/movie/\(endpoint.rawValue)") else {
             errorHandler(MovieError.invalidEndpoint)

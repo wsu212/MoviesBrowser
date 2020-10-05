@@ -9,7 +9,7 @@ import IntentsUI
 import MovieKit
 
 class IntentViewController: UIViewController, INUIHostedViewControlling, UITableViewDataSource, UITableViewDelegate {
-    let repository = MovieRepository.shared
+    let service = MovieService.shared
     @IBOutlet private weak var tableView: UITableView!
     
     var movies = [Movie]() {
@@ -48,7 +48,7 @@ class IntentViewController: UIViewController, INUIHostedViewControlling, UITable
 //            return
 //        }
         
-        repository.fetchMovies(from: .topRated, successHandler: { response in
+        service.fetchMovies(from: .topRated, successHandler: { response in
 //        repository.fetchMovies(from: endpoint, successHandler: { (response) in
             DispatchQueue.main.async {
                 self.movies = response.results

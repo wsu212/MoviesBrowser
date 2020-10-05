@@ -11,26 +11,25 @@ import MovieKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        setupViewControllers()
-        return true
+    
+    private var viewControllers: [UIViewController] {
+        return MovieList.allCases.map {
+            let vc = MovieListViewControlller(list: $0)
+            vc.title = $0.description
+            return vc
+        }
     }
     
-    private func setupViewControllers() {
+    private var tabBarController: UITabBarController {
         let tabBarController = UITabBarController()
-        
-        let viewControllers = MovieRepository.Endpoint.allCases.map { e -> UIViewController in
-            let movieListController = MovieListViewControlller(endpoint: e)
-            movieListController.title = e.description
-            return UINavigationController(rootViewController: movieListController)
-        }
-        
-        tabBarController.setViewControllers(viewControllers, animated: false)
-        window = UIWindow(frame: UIScreen.main.bounds)
+        tabBarController.viewControllers = viewControllers
+        return tabBarController
+    }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+        return true
     }
-
 }
 
